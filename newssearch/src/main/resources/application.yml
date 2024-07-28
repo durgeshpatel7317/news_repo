@@ -1,0 +1,19 @@
+spring:
+  application.name: newssearch
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: update
+  h2.console.enabled: true
+
+springdoc:
+  swagger-ui.path: /swagger-ui.html
+
+newsapi:
+  url: https://newsapi.org/v2/everything
+  key: ccaf5d41cc5140c984818c344edcc14d
+
