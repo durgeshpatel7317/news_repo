@@ -1,0 +1,21 @@
+.spacing {
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.form-spacing {
+  margin-top: 2%;
+}
+
+
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 4.2%;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

@@ -1,0 +1,19 @@
+<mat-card class="max-w-md cursor-pointer" (click)="navigate(news.url)">
+  <mat-card-header>
+    <mat-card-title>{{news.title}}</mat-card-title>
+    <mat-card-subtitle>
+      <div class="flex justify-between items-center">
+        <div>{{news.source.name}}</div>
+        <div>{{news.author}}</div>
+      </div>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{news.urlToImage}}" alt="News Image">
+  <mat-card-content>
+    <p>
+      {{extractContent(news.content)}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+  </mat-card-actions>
+</mat-card>

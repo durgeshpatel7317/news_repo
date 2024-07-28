@@ -1,0 +1,8 @@
+<div class="pb-2">
+  <div class="text-2xl font-bold lg:text-4xl p-4">{{ getFormattedDate(date) }}</div>
+  <div class="flex flex-wrap">
+    <div *ngFor="let item of data" class="p-2">
+      <app-news [news]="item"></app-news>
+    </div>
+  </div>
+</div>

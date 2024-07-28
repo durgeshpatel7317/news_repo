@@ -1,0 +1,62 @@
+<mat-toolbar color="primary">
+  <span>News Search App</span>
+</mat-toolbar>
+<div class="loading-shade w-11/12" *ngIf="loading">
+  <mat-spinner [diameter]="50"></mat-spinner>
+</div>
+<div class="spacing">
+  <div class="grid grid-cols-1 gap-4 pt-5">
+    <!-- First Row with Fields -->
+    <div [formGroup]="form" class="grid grid-cols-1 md:grid-cols-12 gap-4">
+      <div class="col-span-12 md:col-span-5">
+        <mat-form-field appearance="fill" class="w-full">
+          <mat-label>Query</mat-label>
+          <input matInput formControlName="q" placeholder="apple" />
+          <mat-error> Query is required </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-12 md:col-span-3">
+        <mat-form-field appearance="fill" class="w-full">
+          <mat-label>Interval</mat-label>
+          <input
+            matInput
+            formControlName="i"
+            placeholder="apple"
+            type="number"
+          />
+          <mat-error> Value must be > 0 </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-12 md:col-span-4">
+        <mat-form-field appearance="fill" class="w-full">
+          <mat-label>Unit</mat-label>
+          <mat-select formControlName="u">
+            <mat-option *ngFor="let option of intervalOptions" [value]="option">
+              {{ option | titlecase }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Second Row with Button -->
+    <div class="flex justify-end">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!form.valid || loading"
+        (click)="getNews()"
+        class="flex items-center space-x-2"
+      >
+        <mat-icon>search</mat-icon>
+        <span>Search</span>
+      </button>
+    </div>
+  </div>
+
+  <div *ngFor="let item of newsArticle" class="mb-4">
+    <app-display [date]="item.date" [data]="item.articles"></app-display>
+  </div>
+</div>
