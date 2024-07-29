@@ -10,8 +10,7 @@
   </mat-card-header>
   <img mat-card-image src="{{news.urlToImage}}" alt="News Image">
   <mat-card-content>
-    <p>
-      {{extractContent(news.content)}}
+    <p [innerHtml]="extractContent(news.content)">
     </p>
   </mat-card-content>
   <mat-card-actions>
